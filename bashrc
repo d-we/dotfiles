@@ -124,4 +124,6 @@ POWERLINE_BASH_SELECT=1
 alias cp='cp -i'
 alias mv='mv -i'
 
+#set alias vir to open vim read-only
+alias vir='vim -R'
 
