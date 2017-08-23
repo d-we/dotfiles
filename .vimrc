@@ -105,5 +105,5 @@ set ignorecase
 "    execute join(["helptags", g:DocPath])
 "endif
 
-
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
