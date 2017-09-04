@@ -127,3 +127,9 @@ alias mv='mv -i'
 #set alias vir to open vim read-only
 alias vir='vim -R'
 
+#tmux autostart 
+if which tmux>/dev/null; then
+	[[ $TERM != "screen" ]] && exec tmux
+fi
+
+
