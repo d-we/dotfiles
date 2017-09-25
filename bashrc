@@ -128,8 +128,8 @@ alias mv='mv -i'
 alias vir='vim -R'
 
 #tmux autostart 
-if which tmux>/dev/null; then
-	[[ $TERM != "screen" ]] && exec tmux
-fi
+#if which tmux>/dev/null; then
+#	[[ $TERM != "screen" ]] && exec tmux
+#fi
 
 
