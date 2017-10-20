@@ -65,7 +65,8 @@ set t_Co=256
 
 "set nocompatible
 set number
-colorscheme afterglow
+"colorscheme afterglow
+colorscheme atom
 syntax on
 set hls "activates highlightsearch -> :noh to stop highlighting
 
