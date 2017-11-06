@@ -1,0 +1,2 @@
+#enables vi like editing for bash/python/etc..
+set editing-mode vi
