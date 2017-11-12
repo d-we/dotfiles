@@ -1,7 +1,10 @@
 "Section 01 - Vundle Configuration
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+"enable 256bit colors
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -11,17 +14,37 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'oinksoft/vim-sml'
-Plugin 'javier-lopez/sml.vim'
-Plugin 'rafi/awesome-vim-colorschemes'
+
+
+
+Plugin 'Valloric/YouCompleteMe'	"autocompletation
+Plugin 'vim-syntastic/syntastic' "syntax checker
+Plugin 'scrooloose/nerdtree' "directory tree
+Plugin 'javier-lopez/sml.vim' "running sml out of vim
+"Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes
+"Plugin 'zcodes/vim-colors-basic' "colorscheme
+"Plugin 'thewatts/wattslandia' "colorscheme
+"Plugin 'lxmzhv/vim' "colorscheme
+"Plugin 'altercation/vim-colors-solarized' "colorscheme
+"Plugin 'jnurmine/Zenburn' "colorscheme
+"Plugin 'ajh17/Spacegray.vim' "colorscheme
+"Plugin 'hzchirs/vim-material' "colorscheme
+Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
+Plugin 'altercation/vim-colors-solarized' "colorscheme
+Plugin 'xuhdev/vim-latex-live-preview' "latex live-preview TEST
+"test plugins for python
+Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
+Plugin 'vim-scripts/indentpython.vim' "better indentation for python
+Plugin 'tpope/vim-fugitive' "git support
+Plugin 'jistr/vim-nerdtree-tabs' "nertree tabs
+
 " Keep Plugin commands between vundle#begin/end.
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+"colorscheme SerialExperimentsLain
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -62,13 +85,21 @@ set t_Co=256
 "#######################
 "#######################
 "Section 04 - Everything else
-
+"
+if has('gui_running') "if using gvim then switch colorscheme and remove buttons
+  set background=dark
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guifont=hack "sets font for gui (needed for powerline)
+  colorscheme solarized
+else
+  colorscheme SerialExperimentsLain
+endif
 "set nocompatible
 set number
-"colorscheme afterglow
-colorscheme atom
 syntax on
 set hls "activates highlightsearch -> :noh to stop highlighting
+
 
 "Disable arrow keys:
 nnoremap <up> 		<nop>
@@ -88,6 +119,32 @@ set clipboard=unnamedplus
 set ignorecase
 
 
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+
+"better folding
+set foldmethod=indent
+set foldlevel=99
+"enable folding with spacebar
+nnoremap <space> za
+
+"python indentation (PEP8):
+au BufNewFile,BufRead *.py;
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+"set encoding to utf8
+set encoding=utf-8
+"closes autocompletion window after being used
+let g:ycm_autoclose_preview_window_after_completion=1
+
+"let python_highlight_all=1 "what do you do?!?!
+
 
 
 "the following settings can be used to generate helpfiles in case they are
@@ -105,6 +162,3 @@ set ignorecase
 "if !filereadable(g:DocTags)
 "    execute join(["helptags", g:DocPath])
 "endif
-
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
