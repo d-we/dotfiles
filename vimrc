@@ -31,7 +31,9 @@ Plugin 'javier-lopez/sml.vim' "running sml out of vim
 "Plugin 'hzchirs/vim-material' "colorscheme
 Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
 Plugin 'altercation/vim-colors-solarized' "colorscheme
-Plugin 'xuhdev/vim-latex-live-preview' "latex live-preview TEST
+Plugin 'lifepillar/vim-solarized8' "colorscheme
+"Plugin 'xuhdev/vim-latex-live-preview' "latex live-preview TEST
+Plugin 'vim-latex/vim-latex'
 "test plugins for python
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
 Plugin 'vim-scripts/indentpython.vim' "better indentation for python
@@ -91,7 +93,7 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guifont=hack "sets font for gui (needed for powerline)
-  colorscheme solarized
+  colorscheme solarized8_dark_high
 else
   colorscheme SerialExperimentsLain
 endif
@@ -162,3 +164,4 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "if !filereadable(g:DocTags)
 "    execute join(["helptags", g:DocPath])
 "endif
+"
