@@ -33,8 +33,10 @@ Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
 Plugin 'altercation/vim-colors-solarized' "colorscheme
 Plugin 'lifepillar/vim-solarized8' "colorscheme
 "Plugin 'xuhdev/vim-latex-live-preview' "latex live-preview TEST
-Plugin 'vim-latex/vim-latex'
-"test plugins for python
+"Plugin 'vim-latex/vim-latex'
+Plugin 'lervag/vimtex'
+"Plugins for python:
+Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help template.txt)
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
 Plugin 'vim-scripts/indentpython.vim' "better indentation for python
 Plugin 'tpope/vim-fugitive' "git support
@@ -129,6 +131,7 @@ set foldmethod=indent
 set foldlevel=99
 "enable folding with spacebar
 nnoremap <space> za
+
 
 "python indentation (PEP8):
 au BufNewFile,BufRead *.py;
