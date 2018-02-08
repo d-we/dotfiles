@@ -119,5 +119,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+#binds zsh autosuggest-accept to ESC+1
+bindkey '\e1' autosuggest-accept 
+
 #Needed for powerline to work in tmux
 PATH=$PATH:~/.local/bin
