@@ -7,10 +7,13 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gentoo" #maintheme
 
-#ZSH_THEME="random"
-#ZSH_THEME="blinks"
+
+#ZSH_THEME="gentoo" #maintheme old
+ZSH_THEME="candy"  #maintheme new
+
+
+#ZSH_THEME="gnzh2" #customized theme
 #ZSH_THEME="agnoster"
 #ZSH_THEME="robbyrussell"
 
@@ -86,6 +89,9 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+
+#following line will change zsh autosuggestion color
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

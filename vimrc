@@ -96,7 +96,8 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set guifont=hack "sets font for gui (needed for powerline)
   colorscheme solarized8_dark_high
 else
-  colorscheme SerialExperimentsLain
+  "colorscheme SerialExperimentsLain
+  colorscheme solarized8_dark_high
 endif
 "set nocompatible
 set number
