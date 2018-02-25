@@ -29,6 +29,7 @@ Plugin 'javier-lopez/sml.vim' "running sml out of vim
 "Plugin 'jnurmine/Zenburn' "colorscheme
 "Plugin 'ajh17/Spacegray.vim' "colorscheme
 "Plugin 'hzchirs/vim-material' "colorscheme
+Plugin 'sickill/vim-monokai' "colorscheme
 Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
 Plugin 'altercation/vim-colors-solarized' "colorscheme
 Plugin 'lifepillar/vim-solarized8' "colorscheme
