@@ -36,7 +36,7 @@ ZSH_THEME="candy"  #maintheme new
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -121,9 +121,9 @@ alias mv='mv -i'
 alias vir='vim -R'
 
 #add ~/bin to path if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+#if [ -d "$HOME/bin" ] ; then
+#    PATH="$HOME/bin:$PATH"
+#fi
 
 #binds zsh autosuggest-accept to ESC+1
 bindkey '\e1' autosuggest-accept 

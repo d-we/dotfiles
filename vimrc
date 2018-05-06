@@ -34,7 +34,7 @@ Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
 Plugin 'altercation/vim-colors-solarized' "colorscheme
 Plugin 'lifepillar/vim-solarized8' "colorscheme
 "Plugin 'vim-latex/vim-latex'
-Plugin 'lervag/vimtex' "latex color scheme
+Plugin 'lervag/vimtex' "latex 
 "Plugins for python:
 Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help template.txt)
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
