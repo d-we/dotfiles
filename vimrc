@@ -20,8 +20,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'	"autocompletation
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
-Plugin 'javier-lopez/sml.vim' "running sml out of vim
-"Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes
+"Plugin 'javier-lopez/sml.vim' "running sml out of vim
+Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes
 "Plugin 'zcodes/vim-colors-basic' "colorscheme
 "Plugin 'thewatts/wattslandia' "colorscheme
 "Plugin 'lxmzhv/vim' "colorscheme
@@ -29,10 +29,11 @@ Plugin 'javier-lopez/sml.vim' "running sml out of vim
 "Plugin 'jnurmine/Zenburn' "colorscheme
 "Plugin 'ajh17/Spacegray.vim' "colorscheme
 "Plugin 'hzchirs/vim-material' "colorscheme
-Plugin 'sickill/vim-monokai' "colorscheme
-Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
-Plugin 'altercation/vim-colors-solarized' "colorscheme
-Plugin 'lifepillar/vim-solarized8' "colorscheme
+"Plugin 'sickill/vim-monokai' "colorscheme
+Plugin 'morhetz/gruvbox' "colorscheme
+"Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
+"Plugin 'altercation/vim-colors-solarized' "colorscheme
+"Plugin 'lifepillar/vim-solarized8' "colorscheme
 "Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex' "latex 
 "Plugins for python:
@@ -95,15 +96,20 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guifont=hack "sets font for gui (needed for powerline)
-  colorscheme solarized8_dark_high
+  "colorscheme solarized8_dark_high
+  colorscheme atom
 else
   "colorscheme SerialExperimentsLain
-  colorscheme solarized8_dark_high
+  "colorscheme solarized8_dark_high
+  colorscheme gruvbox
 endif
 "set nocompatible
 set number
 syntax on
 set hls "activates highlightsearch -> :noh to stop highlighting
+
+au BufRead,BufNewFile *.asm set filetype=nasm "enables nicer syntax highlighting for asm
+au BufRead,BufNewFile *.nasm set filetype=nasm "enables nicer syntax highlighting for asm
 
 
 "Disable arrow keys:
@@ -148,6 +154,8 @@ au BufNewFile,BufRead *.py;
 set encoding=utf-8
 "closes autocompletion window after being used
 let g:ycm_autoclose_preview_window_after_completion=1
+"maps the autocorrection to F9
+map <F9> :YcmCompleter FixIt<CR>
 
 "let python_highlight_all=1 "what do you do?!?!
 
@@ -169,3 +177,4 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "    execute join(["helptags", g:DocPath])
 "endif
 "
+au BufRead,BufNewFile *.pv setfiletype proverif " proverif for cysec2 only
