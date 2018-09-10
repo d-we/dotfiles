@@ -1,3 +1,6 @@
+set secure " the following 2 lines disable critical commands if not using default vimrc (vim will load the .vimrc from current working directory)
+set exrc
+
 "Section 01 - Vundle Configuration
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -22,6 +25,7 @@ Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
 Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes
+Plugin 'whatyouhide/vim-gotham' "gotham scheme test
 "Plugin 'zcodes/vim-colors-basic' "colorscheme
 "Plugin 'thewatts/wattslandia' "colorscheme
 "Plugin 'lxmzhv/vim' "colorscheme
@@ -96,12 +100,11 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guifont=hack "sets font for gui (needed for powerline)
-  "colorscheme solarized8_dark_high
-  colorscheme atom
+  "colorscheme atom
+  colorscheme gotham
 else
-  "colorscheme SerialExperimentsLain
-  "colorscheme solarized8_dark_high
-  colorscheme gruvbox
+  "colorscheme gruvbox
+  colorscheme gotham256
 endif
 "set nocompatible
 set number
@@ -159,7 +162,13 @@ map <F9> :YcmCompleter FixIt<CR>
 
 "let python_highlight_all=1 "what do you do?!?!
 
+"Section 05 (testing) Settings for programming (escp. C/C++)
+set colorcolumn=100 " will highlight 100. column (nice for detecting too long lines)
+highlight ColorColumn ctermbg=black
 
+
+
+"Section XX - Can be helpful:
 
 "the following settings can be used to generate helpfiles in case they are
 "missing
@@ -177,4 +186,3 @@ map <F9> :YcmCompleter FixIt<CR>
 "    execute join(["helptags", g:DocPath])
 "endif
 "
-au BufRead,BufNewFile *.pv setfiletype proverif " proverif for cysec2 only
