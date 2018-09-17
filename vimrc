@@ -1,4 +1,3 @@
-set secure " the following 2 lines disable critical commands if not using default vimrc (vim will load the .vimrc from current working directory)
 set exrc
 
 "Section 01 - Vundle Configuration
@@ -104,7 +103,7 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   colorscheme gotham
 else
   "colorscheme gruvbox
-  colorscheme gotham256
+  colorscheme gotham256 " changed commentcolor from blue to base4 for readability
 endif
 "set nocompatible
 set number
@@ -164,9 +163,9 @@ map <F9> :YcmCompleter FixIt<CR>
 
 "Section 05 (testing) Settings for programming (escp. C/C++)
 set colorcolumn=100 " will highlight 100. column (nice for detecting too long lines)
-highlight ColorColumn ctermbg=black
-
-
+highlight ColorColumn ctermbg=240
+" will change background color to dark gray
+hi Normal ctermbg=235 
 
 "Section XX - Can be helpful:
 
