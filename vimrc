@@ -9,7 +9,10 @@ if $TERM == "xterm-256color"
 endif
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:powerline_pycmd = 'py3' " needed for powerline
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -19,7 +22,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 
-Plugin 'Valloric/YouCompleteMe'	"autocompletation
+"Plugin 'Valloric/YouCompleteMe'	"autocompletation
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
@@ -126,7 +129,7 @@ inoremap <left>		<nop>
 inoremap <right>	<nop>
 
 "enable yank to GUI
-set clipboard=unnamedplus
+set clipboard^=unnamedplus,unnamed
 
 "case-insensitive search
 set ignorecase
