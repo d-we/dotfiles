@@ -1,0 +1,10 @@
+# colorscheme
+eco onedark
+# use 16bit-terminal colors for colorscheme
+e scr.color = 1 
+# enable colorful output when grepping
+e scr.color.grep = true  
+# change type of fortunes
+e cfg.fortunes.type = tips
+# show comments in graphmode on same line as code
+e graph.cmtright = true
