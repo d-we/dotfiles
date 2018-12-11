@@ -5,6 +5,10 @@ e scr.color = 1
 # enable colorful output when grepping
 e scr.color.grep = true  
 # change type of fortunes
-e cfg.fortunes.type = tips
+e cfg.fortunes.type = tips, nsfw, funny
 # show comments in graphmode on same line as code
 e graph.cmtright = true
+# enable utf8 jump arrows and boxes
+e scr.utf8 = true
+# enable curvy edges
+e scr.utf8.curvy = true

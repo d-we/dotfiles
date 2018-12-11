@@ -26,8 +26,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
-Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes
+"Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes # IF GOTHMAM BUGS
+"ENABLE THIS AGAIN
 Plugin 'whatyouhide/vim-gotham' "gotham scheme test
+"Plugin 'tunz/vim-pwn' " extra commands for pwntools
 "Plugin 'zcodes/vim-colors-basic' "colorscheme
 "Plugin 'thewatts/wattslandia' "colorscheme
 "Plugin 'lxmzhv/vim' "colorscheme
@@ -36,7 +38,7 @@ Plugin 'whatyouhide/vim-gotham' "gotham scheme test
 "Plugin 'ajh17/Spacegray.vim' "colorscheme
 "Plugin 'hzchirs/vim-material' "colorscheme
 "Plugin 'sickill/vim-monokai' "colorscheme
-Plugin 'morhetz/gruvbox' "colorscheme
+"Plugin 'morhetz/gruvbox' "colorscheme
 "Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
 "Plugin 'altercation/vim-colors-solarized' "colorscheme
 "Plugin 'lifepillar/vim-solarized8' "colorscheme
@@ -46,7 +48,7 @@ Plugin 'lervag/vimtex' "latex
 Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help template.txt)
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
 Plugin 'vim-scripts/indentpython.vim' "better indentation for python
-Plugin 'tpope/vim-fugitive' "git support
+Plugin 'tpope/vim-fugitive' "git support 
 "Plugin 'jistr/vim-nerdtree-tabs' "nertree tabs
 
 " Keep Plugin commands between vundle#begin/end.
@@ -113,9 +115,17 @@ set number
 syntax on
 set hls "activates highlightsearch -> :noh to stop highlighting
 
-au BufRead,BufNewFile *.asm set filetype=nasm "enables nicer syntax highlighting for asm
-au BufRead,BufNewFile *.nasm set filetype=nasm "enables nicer syntax highlighting for asm
-
+"Nicer syntax highlighting for asm files
+au BufRead,BufNewFile *.asm set filetype=nasm
+au BufRead,BufNewFile *.nasm set filetype=nasm
+"Build & run asm file
+au BufRead,BufNewFile *.asm command Run  !clear && nasm -f elf64 % && ld %:r.o -o %:r
+au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -o %:r
+"Build & attach radare to file
+au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 % 
+			\ && ld %:r.o -o %:r && r2 -d %:r
+au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 % 
+			\ && ld %:r.o -o %:r && r2 -d %:r
 
 "Disable arrow keys:
 nnoremap <up> 		<nop>
@@ -128,6 +138,9 @@ inoremap <down>		<nop>
 inoremap <left>		<nop>
 inoremap <right>	<nop>
 
+"map j/k to gj/gk for better navigation on wrapped lines (e.g. useful on TeX)
+nnoremap j gj
+nnoremap k gk
 "enable yank to GUI
 set clipboard^=unnamedplus,unnamed
 
@@ -144,6 +157,11 @@ set foldlevel=99
 "enable folding with spacebar
 nnoremap <space> za
 
+
+"general indentation setting (2 spaces instead of tab)
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
 "python indentation (PEP8):
 au BufNewFile,BufRead *.py;
@@ -164,27 +182,8 @@ map <F9> :YcmCompleter FixIt<CR>
 
 "let python_highlight_all=1 "what do you do?!?!
 
-"Section 05 (testing) Settings for programming (escp. C/C++)
 set colorcolumn=100 " will highlight 100. column (nice for detecting too long lines)
 highlight ColorColumn ctermbg=240
 " will change background color to dark gray
 hi Normal ctermbg=235 
 
-"Section XX - Can be helpful:
-
-"the following settings can be used to generate helpfiles in case they are
-"missing
-"set rtp+=/usr/share/vim/vim80/doc
-
-" Ensure that helptags are generated for the vim help directory
-" This can create a new tag file for the docs. Consider the following steps:
-" 1. change permissions of /usr/share/vim/vim80/doc and all subfolders to 777
-" 2. start vim and check if helpfiles are available
-" 3. after the tag-file is generated and the help files are working you can
-"    change the folder permissions back
-"let g:DocPath = expand("$VIMRUNTIME/doc")
-"let g:DocTags = join([g:DocPath, "tags"], "/")
-"if !filereadable(g:DocTags)
-"    execute join(["helptags", g:DocPath])
-"endif
-"
