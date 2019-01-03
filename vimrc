@@ -107,8 +107,8 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   "colorscheme atom
   colorscheme gotham
 else
-  "colorscheme gruvbox
-  colorscheme gotham256 " changed commentcolor from blue to base4 for readability
+  colorscheme delek
+  "colorscheme gotham256 " changed commentcolor from blue to base4 for readability
 endif
 "set nocompatible
 set number
@@ -162,6 +162,7 @@ nnoremap <space> za
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set expandtab "change tab to spaces
 
 "python indentation (PEP8):
 au BufNewFile,BufRead *.py;
@@ -172,6 +173,13 @@ au BufNewFile,BufRead *.py;
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+
+"makefile indendation (needs real tabs or build will fail)
+au FileType make;
+  \ set tabstop=4
+  \ set shiftwidth=4
+  \ set softtabstop=0
+  \ set noexpandtab
 
 "set encoding to utf8
 set encoding=utf-8
@@ -185,5 +193,5 @@ map <F9> :YcmCompleter FixIt<CR>
 set colorcolumn=100 " will highlight 100. column (nice for detecting too long lines)
 highlight ColorColumn ctermbg=240
 " will change background color to dark gray
-hi Normal ctermbg=235 
+"hi Normal ctermbg=234  "testing
 
