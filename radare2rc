@@ -14,3 +14,6 @@ e scr.utf8 = true
 e scr.utf8.curvy = true
 # follow child on fork
 e dbg.follow.child = true
+# load colorscheme (testing)
+e scr.color = 3
+. /home/dwe/.r2_colorscheme
