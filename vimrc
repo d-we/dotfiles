@@ -25,6 +25,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'Valloric/YouCompleteMe'	"autocompletation
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
+Plugin 'udalov/kotlin-vim' "kotlin syntax highlighting
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
 "Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes # IF GOTHMAM BUGS
 "ENABLE THIS AGAIN
@@ -119,8 +120,8 @@ set hls "activates highlightsearch -> :noh to stop highlighting
 au BufRead,BufNewFile *.asm set filetype=nasm
 au BufRead,BufNewFile *.nasm set filetype=nasm
 "Build & run asm file
-au BufRead,BufNewFile *.asm command Run  !clear && nasm -f elf64 % && ld %:r.o -o %:r
-au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -o %:r
+au BufRead,BufNewFile *.asm command Run  !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
+au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
 "Build & attach radare to file
 au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 % 
 			\ && ld %:r.o -o %:r && r2 -d %:r

@@ -1,5 +1,5 @@
 # colorscheme
-eco onedark
+#eco onedark
 # use 16bit-terminal colors for colorscheme
 e scr.color = 1 
 # enable colorful output when grepping
@@ -16,4 +16,4 @@ e scr.utf8.curvy = true
 e dbg.follow.child = true
 # load colorscheme (testing)
 e scr.color = 3
-. /home/dwe/.r2_colorscheme
+. ~/.r2_colorscheme

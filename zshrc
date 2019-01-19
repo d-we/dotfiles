@@ -120,6 +120,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias vir='vim -R'
 
+# enable radare interactive help
+alias rahelp2="r2 -q -c '?*~...' -"
+
 alias aslroff='setarch `uname -m` -R /bin/zsh'
 #add ~/bin to path if it exists
 #if [ -d "$HOME/bin" ] ; then
