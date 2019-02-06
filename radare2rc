@@ -1,7 +1,3 @@
-# colorscheme
-#eco onedark
-# use 16bit-terminal colors for colorscheme
-e scr.color = 1 
 # enable colorful output when grepping
 e scr.color.grep = true  
 # change type of fortunes
