@@ -4,14 +4,14 @@ set exrc
 set nocompatible              " be iMproved, required
 filetype off                  " required
 "enable 256bit colors
-if $TERM == "xterm-256color"
+if $TERM == "xterm-256color" "TODO: double check this if I need screen-256color aswell
   set t_Co=256
 endif
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:powerline_pycmd = 'py3' " needed for powerline
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -22,28 +22,14 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 
-"Plugin 'Valloric/YouCompleteMe'	"autocompletation
+Plugin 'Valloric/YouCompleteMe'	"autocompletation
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
 Plugin 'udalov/kotlin-vim' "kotlin syntax highlighting
+Plugin 'morhetz/gruvbox' " color scheme gruvbox
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
-"Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes # IF GOTHMAM BUGS
-"ENABLE THIS AGAIN
+"Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes # IF GOTHMAM BUGS ENABLE THIS AGAIN
 Plugin 'whatyouhide/vim-gotham' "gotham scheme test
-"Plugin 'tunz/vim-pwn' " extra commands for pwntools
-"Plugin 'zcodes/vim-colors-basic' "colorscheme
-"Plugin 'thewatts/wattslandia' "colorscheme
-"Plugin 'lxmzhv/vim' "colorscheme
-"Plugin 'altercation/vim-colors-solarized' "colorscheme
-"Plugin 'jnurmine/Zenburn' "colorscheme
-"Plugin 'ajh17/Spacegray.vim' "colorscheme
-"Plugin 'hzchirs/vim-material' "colorscheme
-"Plugin 'sickill/vim-monokai' "colorscheme
-"Plugin 'morhetz/gruvbox' "colorscheme
-"Plugin 'lu-ren/SerialExperimentsLain' "colorscheme
-"Plugin 'altercation/vim-colors-solarized' "colorscheme
-"Plugin 'lifepillar/vim-solarized8' "colorscheme
-"Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex' "latex 
 "Plugins for python:
 Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help template.txt)
@@ -58,7 +44,6 @@ Plugin 'tpope/vim-fugitive' "git support
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"colorscheme SerialExperimentsLain
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -108,8 +93,9 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   "colorscheme atom
   colorscheme gotham
 else
-  colorscheme delek
+  "colorscheme delek
   "colorscheme gotham256 " changed commentcolor from blue to base4 for readability
+  colorscheme gruvbox
 endif
 "set nocompatible
 set number
@@ -126,6 +112,14 @@ au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -
 au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 % 
 			\ && ld %:r.o -o %:r && r2 -d %:r
 au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 % 
+			\ && ld %:r.o -o %:r && r2 -d %:r
+
+au BufRead,BufNewFile *.asm command Run32  !clear && nasm % && ld %:r.o -o %:r && ./%:r
+au BufRead,BufNewFile *.nasm command Run32 !clear && nasm % && ld %:r.o -o %:r && ./%:r
+"Build & attach radare to file
+au BufRead,BufNewFile *.asm command Debug32 !clear && nasm % 
+			\ && ld %:r.o -o %:r && r2 -d %:r
+au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm % 
 			\ && ld %:r.o -o %:r && r2 -d %:r
 
 "Disable arrow keys:
@@ -194,5 +188,19 @@ map <F9> :YcmCompleter FixIt<CR>
 set colorcolumn=100 " will highlight 100. column (nice for detecting too long lines)
 highlight ColorColumn ctermbg=240
 " will change background color to dark gray
-"hi Normal ctermbg=234  "testing
+"hi Normal ctermbg=233  "testing
+hi Normal ctermbg=NONE  "testing
+
+" mouse support
+if has("mouse")
+  set mouse=a
+endif
+
+" jump to last cursor position (requires viminfo file)
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+
+" run python files
+autocmd FileType python map <F10> :!clear && python2 %<CR>
 
