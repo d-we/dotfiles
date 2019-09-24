@@ -95,6 +95,7 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
 else
   "colorscheme delek
   "colorscheme gotham256 " changed commentcolor from blue to base4 for readability
+  set background=dark
   colorscheme gruvbox
 endif
 "set nocompatible
