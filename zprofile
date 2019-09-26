@@ -10,7 +10,9 @@ fi
 PATH=$PATH:/sbin:/usr/sbin
 
 # needed for gem packages to run (e.g. one_gadget)
-PATH=$PATH:/home/dwe/.gem/ruby/2.5.0/bin
+PATH=$PATH:/home/dwe/.gem/ruby/2.6.0/bin
 
 # set vim as default editor
 export EDITOR=$(which vim)
+
+
