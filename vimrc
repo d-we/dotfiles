@@ -181,8 +181,12 @@ au FileType make;
 set encoding=utf-8
 "closes autocompletion window after being used
 let g:ycm_autoclose_preview_window_after_completion=1
-"maps the autocorrection to F9
+
+" maps the YCM autocorrection to F9
 map <F9> :YcmCompleter FixIt<CR>
+
+" toogle NERDTree with F2
+map <F2> :NERDTreeToggle<CR>
 
 "let python_highlight_all=1 "what do you do?!?!
 
