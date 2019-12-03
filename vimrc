@@ -1,4 +1,5 @@
-set exrc
+" prevents code executing through modelines (e.g. CVE-2019-12735)
+set nomodeline
 
 "Section 01 - Vundle Configuration
 set nocompatible              " be iMproved, required
@@ -25,7 +26,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'	"autocompletation
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
-Plugin 'udalov/kotlin-vim' "kotlin syntax highlighting
+"Plugin 'udalov/kotlin-vim' "kotlin syntax highlighting
 Plugin 'morhetz/gruvbox' " color scheme gruvbox
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
 "Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes # IF GOTHMAM BUGS ENABLE THIS AGAIN
@@ -34,7 +35,7 @@ Plugin 'lervag/vimtex' "latex
 "Plugins for python:
 Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help template.txt)
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
-Plugin 'vim-scripts/indentpython.vim' "better indentation for python
+"Plugin 'vim-scripts/indentpython.vim' "better indentation for python
 Plugin 'tpope/vim-fugitive' "git support 
 "Plugin 'jistr/vim-nerdtree-tabs' "nertree tabs
 
@@ -62,10 +63,12 @@ filetype plugin indent on    " required
 
 "Section 02 - Settings for Syntastic
 
+  
+    let g:syntastic_python_checkers = ['pylint']
 "    set statusline+=%#warningmsg#
 "    set statusline+=%{SyntasticStatuslineFlag()}
 "    set statusline+=%*
-"
+
 "    let g:syntastic_always_populate_loc_list = 1
 "    let g:syntastic_auto_loc_list = 1
 "    let g:syntastic_check_on_open = 1
@@ -90,8 +93,8 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guifont=hack "sets font for gui (needed for powerline)
-  "colorscheme atom
-  colorscheme gotham
+  "colorscheme gotham
+  colorscheme gruvbox
 else
   "colorscheme delek
   "colorscheme gotham256 " changed commentcolor from blue to base4 for readability
@@ -115,13 +118,16 @@ au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 %
 au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 % 
 			\ && ld %:r.o -o %:r && r2 -d %:r
 
-au BufRead,BufNewFile *.asm command Run32  !clear && nasm % && ld %:r.o -o %:r && ./%:r
-au BufRead,BufNewFile *.nasm command Run32 !clear && nasm % && ld %:r.o -o %:r && ./%:r
-"Build & attach radare to file
-au BufRead,BufNewFile *.asm command Debug32 !clear && nasm % 
-			\ && ld %:r.o -o %:r && r2 -d %:r
-au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm % 
-			\ && ld %:r.o -o %:r && r2 -d %:r
+"Build & run asm file 32-bit
+au BufRead,BufNewFile *.asm command Run32  !clear && nasm -f elf32 -o %:r.o % 
+      \ && ld -m elf_i386 %:r.o -o %:r && ./%:r
+au BufRead,BufNewFile *.nasm command Run32 !clear && nasm -f elf32 -o %:r.o % 
+      \ && ld -m elf_i386 %:r.o -o %:r && ./%:r
+"Build & attach radare to file 32-bit
+au BufRead,BufNewFile *.asm command Debug32 !clear && nasm -f elf32 -o %:r.o % 
+			\ && ld -m elf_i386 %:r.o -o %:r && r2 -d %:r
+au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm -f elf32 -o %:r.o % 
+			\ && ld -m elf_i386 %:r.o -o %:r && r2 -d %:r
 
 "Disable arrow keys:
 nnoremap <up> 		<nop>
@@ -207,5 +213,5 @@ if has("autocmd")
 endif
 
 " run python files
-autocmd FileType python map <F10> :!clear && python2 %<CR>
+autocmd FileType python map <F10> :!clear && python3 %<CR>
 
