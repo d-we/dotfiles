@@ -16,6 +16,6 @@ add-auto-load-safe-path ~/tools/spider_monkey/gecko-dev
 #winheight ASM +5
 #focus cmd
 source /home/dwe/.gdbinit-gef.py
-source /home/dwe/d-we_github/tools/gef-commands.py
+source /home/dwe/github_d-we/tools/gef-commands.py
 # follow childs upon fork
 set follow-fork-mode child
