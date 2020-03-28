@@ -1,5 +1,5 @@
 # Configuration file for ipython.
-
+# store under ~/.ipython/profile_default/ipython_config.py
 #------------------------------------------------------------------------------
 # InteractiveShellApp(Configurable) configuration
 #------------------------------------------------------------------------------
