@@ -12,7 +12,16 @@ PATH=$PATH:/sbin:/usr/sbin
 # needed for gem packages to run (e.g. one_gadget)
 PATH=$PATH:/home/dwe/.gem/ruby/2.6.0/bin
 
+#Needed for powerline to work in tmux
+PATH=$PATH:~/.local/bin
+
 # set vim as default editor
 export EDITOR=$(which vim)
 
-
+# start ssh-agent for ssh-add
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
+fi

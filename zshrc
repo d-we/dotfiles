@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/dwe/.oh-my-zsh
+export ZSH=/home/dwe/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -75,7 +75,7 @@ plugins=(
   cp
   python
   pip
-  zsh-autosuggestions # removed on 10.04.19 because error thrown and no difference when comment out
+  #zsh-autosuggestions # removed on 10.04.19 because error thrown and no difference when comment out
   #install cmd for autosuggestions: >git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
   zsh-syntax-highlighting # must be the last plugin
   # install cmd for syntax-highliting: >git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -114,29 +114,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# ALIAS
-# prevent cp and mv from overwriting without confirming
-alias cp='cp -i'
-alias mv='mv -i'
-alias vir='vim -R'
 
-# enable radare interactive help
-alias rahelp2="r2 -q -c '?*~...' -"
-
-# function to attach r2 to a process - usage example: attach_r2 
-# (DEPRECATED: now bashscript in ~/bin - more covenient as bashscript when used as root)
-#attach_r2() {r2 -d $(ps aux | grep $1 | awk 'NR==1{print $2}');}
-
-alias aslroff='setarch `uname -m` -R /bin/zsh'
-alias enable-pintos='export PATH=$PATH:~/uni/os/repo/src/utils/'
 
 #add ~/bin to path if it exists
 #if [ -d "$HOME/bin" ] ; then
 #    PATH="$HOME/bin:$PATH"
 #fi
 
-#binds zsh autosuggest-accept to ESC+1
+# binds zsh autosuggest-accept to ESC+1
 bindkey '\e1' autosuggest-accept 
 
-#Needed for powerline to work in tmux
-PATH=$PATH:~/.local/bin
+
+# include alias definitions
+if [ -f $HOME/.zshrc_aliases ]; then
+    . $HOME/.zshrc_aliases
+fi
