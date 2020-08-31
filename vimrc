@@ -10,8 +10,9 @@ if $TERM == "xterm-256color" "TODO: double check this if I need screen-256color 
 endif
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/ycm_default_conf.py'
+"let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/ycmd/.ycm_extra_conf.py'
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:powerline_pycmd = 'py3' " needed for powerline
 call vundle#begin()
@@ -99,6 +100,7 @@ else
   "colorscheme delek
   "colorscheme gotham256 " changed commentcolor from blue to base4 for readability
   set background=dark
+  set guifont=hack "sets font for gui (needed for powerline)
   colorscheme gruvbox
 endif
 "set nocompatible
@@ -109,14 +111,27 @@ set hls "activates highlightsearch -> :noh to stop highlighting
 "Nicer syntax highlighting for asm files
 au BufRead,BufNewFile *.asm set filetype=nasm
 au BufRead,BufNewFile *.nasm set filetype=nasm
+
+
+" Build asm files
+au BufRead,BufNewFile *.asm command Build  !clear && nasm -f elf64 % && ld %:r.o -o %:r
+au BufRead,BufNewFile *.nasm command Build  !clear && nasm -f elf64 % && ld %:r.o -o %:r
+
+" Build asm files 32-bit
+au BufRead,BufNewFile *.asm command Build32  !clear && nasm -f elf32 -o %:r.o % 
+      \ && ld -m elf_i386 %:r.o -o %:r
+au BufRead,BufNewFile *.nasm command Build32  !clear && nasm -f elf32 -o %:r.o % 
+      \ && ld -m elf_i386 %:r.o -o %:r
+
+
 "Build & run asm file
 au BufRead,BufNewFile *.asm command Run  !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
 au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
 "Build & attach radare to file
 au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 % 
-			\ && ld %:r.o -o %:r && r2 -d %:r
+			\ && ld %:r.o -o %:r && gdb %:r
 au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 % 
-			\ && ld %:r.o -o %:r && r2 -d %:r
+			\ && ld %:r.o -o %:r && gdb %:r
 
 "Build & run asm file 32-bit
 au BufRead,BufNewFile *.asm command Run32  !clear && nasm -f elf32 -o %:r.o % 
@@ -125,9 +140,9 @@ au BufRead,BufNewFile *.nasm command Run32 !clear && nasm -f elf32 -o %:r.o %
       \ && ld -m elf_i386 %:r.o -o %:r && ./%:r
 "Build & attach radare to file 32-bit
 au BufRead,BufNewFile *.asm command Debug32 !clear && nasm -f elf32 -o %:r.o % 
-			\ && ld -m elf_i386 %:r.o -o %:r && r2 -d %:r
+			\ && ld -m elf_i386 %:r.o -o %:r && gdb %:r
 au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm -f elf32 -o %:r.o % 
-			\ && ld -m elf_i386 %:r.o -o %:r && r2 -d %:r
+			\ && ld -m elf_i386 %:r.o -o %:r && gdb %:r
 
 "Disable arrow keys:
 nnoremap <up> 		<nop>
@@ -215,3 +230,8 @@ endif
 " run python files
 autocmd FileType python map <F10> :!clear && python3 %<CR>
 
+" change the cursor depending on the current mode
+" src: https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
