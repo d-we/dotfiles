@@ -129,3 +129,11 @@ bindkey '\e1' autosuggest-accept
 if [ -f $HOME/.zshrc_aliases ]; then
     . $HOME/.zshrc_aliases
 fi
+
+# make history big enough
+HISTSIZE=100000
+SAVEHIST=100000
+
+
+# src: https://stackoverflow.com/questions/12765344/oh-my-zsh-slow-but-only-for-certain-git-repo
+# DISABLE_UNTRACKED_FILES_DIRTY="true"

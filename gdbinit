@@ -1,5 +1,5 @@
 set disassembly intel
-#set disassemble-next-line on
+set disassemble-next-line on
 set print asm-demangle on
 # enable pwngdb
 #source /home/dwe/tools/pwndbg/gdbinit.py
