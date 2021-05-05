@@ -93,7 +93,7 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set background=dark
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
-  set guifont=hack "sets font for gui (needed for powerline)
+  set guifont=hack\ 13 "sets font for gui (needed for powerline) + appropriate font size
   "colorscheme gotham
   colorscheme gruvbox
 else
@@ -128,9 +128,9 @@ au BufRead,BufNewFile *.nasm command Build32  !clear && nasm -f elf32 -o %:r.o %
 au BufRead,BufNewFile *.asm command Run  !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
 au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
 "Build & attach radare to file
-au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 % 
+au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 -g -F dwarf % 
 			\ && ld %:r.o -o %:r && gdb %:r
-au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 % 
+au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 -g -F dwarf % 
 			\ && ld %:r.o -o %:r && gdb %:r
 
 "Build & run asm file 32-bit
@@ -139,9 +139,9 @@ au BufRead,BufNewFile *.asm command Run32  !clear && nasm -f elf32 -o %:r.o %
 au BufRead,BufNewFile *.nasm command Run32 !clear && nasm -f elf32 -o %:r.o % 
       \ && ld -m elf_i386 %:r.o -o %:r && ./%:r
 "Build & attach radare to file 32-bit
-au BufRead,BufNewFile *.asm command Debug32 !clear && nasm -f elf32 -o %:r.o % 
+au BufRead,BufNewFile *.asm command Debug32 !clear && nasm -f elf32 -g -F dwarf -o %:r.o % 
 			\ && ld -m elf_i386 %:r.o -o %:r && gdb %:r
-au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm -f elf32 -o %:r.o % 
+au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm -f elf32 -g -F dwarf -o %:r.o % 
 			\ && ld -m elf_i386 %:r.o -o %:r && gdb %:r
 
 "Disable arrow keys:
