@@ -23,7 +23,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
-
 Plugin 'Valloric/YouCompleteMe'	"autocompletation
 Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
@@ -39,6 +38,8 @@ Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za
 "Plugin 'vim-scripts/indentpython.vim' "better indentation for python
 Plugin 'tpope/vim-fugitive' "git support 
 "Plugin 'jistr/vim-nerdtree-tabs' "nertree tabs
+Plugin 'bohlender/vim-smt2' "z3 syntax highlighting
+
 
 " Keep Plugin commands between vundle#begin/end.
 
@@ -112,6 +113,12 @@ set hls "activates highlightsearch -> :noh to stop highlighting
 au BufRead,BufNewFile *.asm set filetype=nasm
 au BufRead,BufNewFile *.nasm set filetype=nasm
 
+"syntax highlighting for .tikz files
+au BufRead,BufNewFile *.tikz set filetype=tex
+
+"syntax highlighting for z3 files
+au BufRead,BufNewFile *.z3 set filetype=smt2
+
 
 " Build asm files
 au BufRead,BufNewFile *.asm command Build  !clear && nasm -f elf64 % && ld %:r.o -o %:r
@@ -129,9 +136,9 @@ au BufRead,BufNewFile *.asm command Run  !clear && nasm -f elf64 % && ld %:r.o -
 au BufRead,BufNewFile *.nasm command Run !clear && nasm -f elf64 % && ld %:r.o -o %:r && ./%:r
 "Build & attach radare to file
 au BufRead,BufNewFile *.asm command Debug !clear && nasm -f elf64 -g -F dwarf % 
-			\ && ld %:r.o -o %:r && gdb %:r
+			\ && ld %:r.o -o %:r && gdb -ex start %:r
 au BufRead,BufNewFile *.nasm command Debug !clear && nasm -f elf64 -g -F dwarf % 
-			\ && ld %:r.o -o %:r && gdb %:r
+			\ && ld %:r.o -o %:r && gdb -ex start %:r
 
 "Build & run asm file 32-bit
 au BufRead,BufNewFile *.asm command Run32  !clear && nasm -f elf32 -o %:r.o % 
@@ -140,9 +147,9 @@ au BufRead,BufNewFile *.nasm command Run32 !clear && nasm -f elf32 -o %:r.o %
       \ && ld -m elf_i386 %:r.o -o %:r && ./%:r
 "Build & attach radare to file 32-bit
 au BufRead,BufNewFile *.asm command Debug32 !clear && nasm -f elf32 -g -F dwarf -o %:r.o % 
-			\ && ld -m elf_i386 %:r.o -o %:r && gdb %:r
+			\ && ld -m elf_i386 %:r.o -o %:r && gdb -ex start %:r
 au BufRead,BufNewFile *.nasm command Debug32 !clear && nasm -f elf32 -g -F dwarf -o %:r.o % 
-			\ && ld -m elf_i386 %:r.o -o %:r && gdb %:r
+			\ && ld -m elf_i386 %:r.o -o %:r && gdb -ex start %:r
 
 "Disable arrow keys:
 nnoremap <up> 		<nop>
