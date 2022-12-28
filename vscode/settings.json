@@ -1,0 +1,39 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "cmake.configureOnOpen": true,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "editor.wordWrapColumn": 100,
+    "vim.textwidth": 100,
+    "editor.rulers": [
+        100
+    ],
+    "workbench.colorTheme": "Storm Contrast (rainglow)",
+    "workbench.startupEditor": "none",
+    "customizeUI.activityBar": "bottom",
+    "telemetry.telemetryLevel": "off",
+    "editor.fontSize": 20,
+    "files.associations": {
+        "*.tikz": "latex"
+    },
+    "editor.wordWrap": "bounded",
+    "editor.selectionClipboard": false,
+    "breadcrumbs.enabled": false,
+    "workbench.enableExperiments": false,
+    "diffEditor.wordWrap": "off",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": false,
+    "outline.showArrays": false,
+    "outline.showBooleans": false,
+    "outline.showKeys": false,
+    "outline.showNumbers": false,
+    "outline.showVariables": false,
+    "outline.showStrings": false,
+    "outline.showTypeParameters": false,
+    "outline.showOperators": false,
+    "outline.showNull": false,
+    "outline.showConstants": false,
+    "outline.showEnumMembers": false,
+    "html.format.wrapLineLength": 0,
+    "latex-workshop.latex.autoBuild.run": "never"
+}
