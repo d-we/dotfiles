@@ -1,0 +1,19 @@
+#! /bin/sh
+#
+# brightness.sh
+# Copyright (C) 2019 dwe <dwe@FRZN-XPS>
+#
+# Distributed under terms of the MIT license.
+#
+
+if [ $# -eq 0 ]
+then
+  # no argument
+  curr="$(xrandr --verbose | awk '/Brightness/ {print $2;exit}')"
+  echo "Current brightness: $curr"
+  exit 0
+fi
+
+#xrandr --output eDP-1 --brightness $1
+xrandr --output eDP-1-1 --brightness $1
+

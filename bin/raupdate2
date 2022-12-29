@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cd ~/tools/radare2/
+./sys/install.sh

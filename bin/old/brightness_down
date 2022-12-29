@@ -1,0 +1,14 @@
+#! /bin/zsh
+#
+# brightness_up.sh
+# Copyright (C) 2019 dwe <dwe@FRZN-XPS>
+#
+# Distributed under terms of the MIT license.
+#
+
+curr="$(xrandr --verbose | awk '/Brightness/ {print $2;exit}')"
+echo $curr
+new="$((curr - 0.05))"
+echo $new
+xrandr --output eDP-1 --brightness $new
+

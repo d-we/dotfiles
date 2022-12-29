@@ -1,0 +1,2 @@
+#! /bin/sh
+zsh ~/github_d-we/tools/brightness.zsh $1

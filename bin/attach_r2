@@ -1,0 +1,10 @@
+#! /bin/sh
+#
+# attach_r2.sh
+# Copyright (C) 2019 dwe <dwe@FRZN-NB>
+#
+# Distributed under terms of the MIT license.
+#
+
+
+r2 -d $(ps aux | grep $1 | awk 'NR==1{print $2}')

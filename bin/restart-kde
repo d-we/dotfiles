@@ -1,0 +1,10 @@
+#! /bin/sh
+#
+# restart-kde.sh
+# Copyright (C) 2020 dwe <dwe@Anubis>
+#
+# Distributed under terms of the MIT license.
+#
+
+kquitapp5 plasmashell
+kstart5 plasmashell
