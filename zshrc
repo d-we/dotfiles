@@ -76,7 +76,7 @@ plugins=(
   python
   pip
   #zsh-autosuggestions # removed on 10.04.19 because error thrown and no difference when comment out
-  #install cmd for autosuggestions: >git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  #install cmd for autosuggestions: >yay -S zsh-autosuggestions-git
   zsh-syntax-highlighting # must be the last plugin
   # install cmd for syntax-highliting: >git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 )
