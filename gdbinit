@@ -7,7 +7,7 @@ set print asm-demangle on
 #source ~/peda/peda.py
 
 # trust spider monkeys gdb scripts
-add-auto-load-safe-path ~/tools/spider_monkey/gecko-dev
+#add-auto-load-safe-path ~/tools/spider_monkey/gecko-dev
 
 #layout asm
 #layout regs
