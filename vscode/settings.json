@@ -74,5 +74,6 @@
         "scminput": false
     },
     "cmake.showConfigureWithDebuggerNotification": false,
-    "makefile.configureOnOpen": true
+    "makefile.configureOnOpen": true,
+    "cmake.generator": "Unix Makefiles"
 }
