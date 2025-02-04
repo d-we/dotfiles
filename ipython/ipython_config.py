@@ -304,7 +304,7 @@ c.TerminalInteractiveShell.editing_mode = 'vi'
 #c.TerminalInteractiveShell.extra_open_editor_shortcuts = False
 
 ## Highlight matching brackets.
-#c.TerminalInteractiveShell.highlight_matching_brackets = True
+c.TerminalInteractiveShell.highlight_matching_brackets = True
 
 ## The name or class of a Pygments style to use for syntax
 #         highlighting: 
