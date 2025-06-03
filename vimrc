@@ -23,22 +23,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
-Plugin 'Valloric/YouCompleteMe'	"autocompletation
-Plugin 'vim-syntastic/syntastic' "syntax checker
+"Plugin 'Valloric/YouCompleteMe'	"autocompletation
+"Plugin 'vim-syntastic/syntastic' "syntax checker
 Plugin 'scrooloose/nerdtree' "directory tree
 "Plugin 'udalov/kotlin-vim' "kotlin syntax highlighting
 Plugin 'morhetz/gruvbox' " color scheme gruvbox
 "Plugin 'javier-lopez/sml.vim' "running sml out of vim
 "Plugin 'rafi/awesome-vim-colorschemes' "varius colorschemes # IF GOTHMAM BUGS ENABLE THIS AGAIN
-Plugin 'whatyouhide/vim-gotham' "gotham scheme test
-Plugin 'lervag/vimtex' "latex 
+"Plugin 'lervag/vimtex' "latex 
 "Plugins for python:
 Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help template.txt)
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
 "Plugin 'vim-scripts/indentpython.vim' "better indentation for python
 Plugin 'tpope/vim-fugitive' "git support 
 "Plugin 'jistr/vim-nerdtree-tabs' "nertree tabs
-Plugin 'bohlender/vim-smt2' "z3 syntax highlighting
+"Plugin 'bohlender/vim-smt2' "z3 syntax highlighting
 
 
 " Keep Plugin commands between vundle#begin/end.

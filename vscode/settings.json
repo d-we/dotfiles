@@ -75,5 +75,9 @@
     },
     "cmake.showConfigureWithDebuggerNotification": false,
     "makefile.configureOnOpen": true,
-    "cmake.generator": "Unix Makefiles"
+    "cmake.generator": "Unix Makefiles",
+    "window.commandCenter": false,
+    "workbench.activityBar.location": "bottom",
+    "workbench.editor.editorActionsLocation": "titleBar",
+    "window.customTitleBarVisibility": "auto"
 }

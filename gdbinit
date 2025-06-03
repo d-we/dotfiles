@@ -1,6 +1,6 @@
-set disassembly intel
-set disassemble-next-line on
-set print asm-demangle on
+#set disassembly intel
+#set disassemble-next-line on
+#set print asm-demangle on
 # enable pwngdb
 #source /home/dwe/tools/pwndbg/gdbinit.py
 # enable peda
@@ -15,7 +15,9 @@ set print asm-demangle on
 #winheight CMD -5
 #winheight ASM +5
 #focus cmd
+
 source /home/dwe/.gdbinit-gef.py
 source /home/dwe/github_d-we/tools/gef-commands.py
+
 # follow childs upon fork
 set follow-fork-mode child

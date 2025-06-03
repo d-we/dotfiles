@@ -108,5 +108,13 @@
     {
         "key": "alt+w shift+j",
         "command": "workbench.action.moveEditorToBelowGroup"
+    },
+    {
+        "key": "alt+`",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
     }
 ]

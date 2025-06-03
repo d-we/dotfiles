@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/dwe/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -75,12 +75,13 @@ plugins=(
   cp
   python
   pip
-  #zsh-autosuggestions # removed on 10.04.19 because error thrown and no difference when comment out
+  zsh-autosuggestions # removed on 10.04.19 because error thrown and no difference when comment out
   #install cmd for autosuggestions: >yay -S zsh-autosuggestions-git
-  zsh-syntax-highlighting # must be the last plugin
+  #zsh-syntax-highlighting # must be the last plugin (manually installed using brew; dwe may-23-2025)
   # install cmd for syntax-highliting: >git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 )
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
