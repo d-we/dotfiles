@@ -118,9 +118,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 #add ~/bin to path if it exists
-#if [ -d "$HOME/bin" ] ; then
-#    PATH="$HOME/bin:$PATH"
-#fi
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
 # binds zsh autosuggest-accept to ESC+1
 bindkey '\e1' autosuggest-accept 
@@ -134,6 +134,11 @@ fi
 # make history big enough
 HISTSIZE=100000
 SAVEHIST=100000
+
+# load my default venv
+if [ -d $HOME/venv-main ]; then
+    source $HOME/venv-main/bin/activate
+fi
 
 
 # src: https://stackoverflow.com/questions/12765344/oh-my-zsh-slow-but-only-for-certain-git-repo
