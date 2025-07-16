@@ -36,6 +36,7 @@ Plugin 'aperezdc/vim-template' "allows to create templates for filetypes (:help 
 Plugin 'tmhedberg/SimpylFold' "better folgding. press 'za' to fold || changed za to spacebar
 "Plugin 'vim-scripts/indentpython.vim' "better indentation for python
 Plugin 'tpope/vim-fugitive' "git support 
+Plugin 'nordtheme/vim' "Nord theme
 "Plugin 'jistr/vim-nerdtree-tabs' "nertree tabs
 "Plugin 'bohlender/vim-smt2' "z3 syntax highlighting
 
@@ -95,13 +96,14 @@ if has('gui_running') "if using gvim then switch colorscheme and remove buttons
   set guioptions-=T  "remove toolbar
   set guifont=hack\ 13 "sets font for gui (needed for powerline) + appropriate font size
   "colorscheme gotham
-  colorscheme gruvbox
+  colorscheme nord
+
 else
   "colorscheme delek
   "colorscheme gotham256 " changed commentcolor from blue to base4 for readability
   set background=dark
   set guifont=hack "sets font for gui (needed for powerline)
-  colorscheme gruvbox
+  colorscheme nord
 endif
 "set nocompatible
 set number
@@ -220,8 +222,10 @@ map <F2> :NERDTreeToggle<CR>
 set colorcolumn=100 " will highlight 100. column (nice for detecting too long lines)
 highlight ColorColumn ctermbg=240
 " will change background color to dark gray
-"hi Normal ctermbg=233  "testing
-hi Normal ctermbg=NONE  "testing
+"hi Normal ctermbg=25  "testing
+"hi Normal ctermbg=NONE  "testing
+" better colors for text highlightign
+highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
 " mouse support
 if has("mouse")
