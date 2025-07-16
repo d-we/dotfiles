@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-icons",
     "cmake.configureOnOpen": true,
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "C_Cpp.enhancedColorization": "enabled",
@@ -15,7 +15,7 @@
     "workbench.startupEditor": "none",
     "customizeUI.activityBar": "bottom",
     "telemetry.telemetryLevel": "off",
-    "editor.fontSize": 20,
+    "editor.fontSize": 18,
     "files.associations": {
         "*.tikz": "latex"
     },
@@ -79,5 +79,6 @@
     "window.commandCenter": false,
     "workbench.activityBar.location": "bottom",
     "workbench.editor.editorActionsLocation": "titleBar",
-    "window.customTitleBarVisibility": "auto"
+    "window.customTitleBarVisibility": "auto",
+    "editor.defaultColorDecorators": "never"
 }
