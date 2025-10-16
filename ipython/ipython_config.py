@@ -306,6 +306,14 @@ c.TerminalInteractiveShell.editing_mode = 'vi'
 ## Highlight matching brackets.
 c.TerminalInteractiveShell.highlight_matching_brackets = True
 
+c.TerminalInteractiveShell.shortcuts = [
+   {
+       "new_keys": ["escape", "1"],
+       "command": "IPython:auto_suggest.accept",
+       "create": True,
+   }
+]
+
 ## The name or class of a Pygments style to use for syntax
 #         highlighting: 
 #  manni, igor, lovelace, xcode, vim, autumn, abap, vs, rrt, native, perldoc, borland, arduino, tango, emacs, friendly, monokai, paraiso-dark, colorful, murphy, bw, pastie, rainbow_dash, algol_nu, paraiso-light, trac, default, algol, fruity
