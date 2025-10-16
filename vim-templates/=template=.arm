@@ -1,0 +1,12 @@
+.global _start             
+.p2align 3                 // MacOS requires 8 byte alignment
+
+_start: 
+%HERE%
+
+// exit program
+mov     X0,  #0     // Use 0 return code
+mov     X16, #1     // exit syscall
+svc     0           // syscall
+
+helloworld:      .ascii  "Hello World!\n"
