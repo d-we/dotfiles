@@ -75,6 +75,7 @@ plugins=(
   cp
   python
   pip
+  fzf-tab
   zsh-autosuggestions # removed on 10.04.19 because error thrown and no difference when comment out
   #install cmd for autosuggestions: >yay -S zsh-autosuggestions-git
   #zsh-syntax-highlighting # must be the last plugin (manually installed using brew; dwe may-23-2025)
@@ -140,6 +141,25 @@ if [ -d $HOME/venv-main ]; then
     source $HOME/venv-main/bin/activate
 fi
 
+# fzf config
+## Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+## generated using https://minsw.github.io/fzf-color-picker/
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:#d0d0d0,bg:#121212,hl:#5f87af
+ --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff
+ --color=info:#398251,prompt:#58fad6,pointer:#2aea5e
+ --color=marker:#2aea5e,spinner:#2aea5e,header:#87afaf'
+ #
+# fzf-tab config
+zstyle ':completion:*' menu no
+# preview directories within cd autocompletion
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
+# color filenames
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
+# fzf pointer color
+zstyle ':fzf-tab:*' fzf-flags '--color=pointer:#8ce077'
 
 # src: https://stackoverflow.com/questions/12765344/oh-my-zsh-slow-but-only-for-certain-git-repo
 #DISABLE_UNTRACKED_FILES_DIRTY="true"
