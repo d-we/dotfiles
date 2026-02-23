@@ -155,6 +155,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 zstyle ':completion:*' menu no
 # preview directories within cd autocompletion
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:ls:*' fzf-preview 'ls -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'ls -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:vim:*' fzf-preview 'ls -1 --color=always $realpath'
 # color filenames
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
