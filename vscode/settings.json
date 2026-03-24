@@ -17,14 +17,15 @@
     "telemetry.telemetryLevel": "off",
     "editor.fontSize": 18,
     "files.associations": {
-        "*.tikz": "latex"
+        "*.tikz": "latex",
+        "*.arm": "arm"
     },
     "editor.wordWrap": "bounded",
     "editor.selectionClipboard": false,
     "workbench.enableExperiments": false,
     "diffEditor.wordWrap": "off",
     "editor.fontFamily": "Fira Code",
-    "editor.fontWeight": "500",
+    "editor.fontWeight": "600",
     "editor.fontLigatures": false,
     "outline.showArrays": false,
     "outline.showBooleans": false,
@@ -37,7 +38,7 @@
     "outline.showNull": false,
     "outline.showConstants": false,
     "outline.showEnumMembers": false,
-    "files.autoSave": "onWindowChange",
+    "files.autoSave": "onFocusChange",
     "html.format.wrapLineLength": 0,
     "latex-workshop.latex.autoBuild.run": "never",
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
@@ -70,8 +71,10 @@
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
-        "markdown": false,
-        "scminput": false
+        "markdown": true,
+        "scminput": false,
+        "latex": false,
+        "bibtex": false
     },
     "cmake.showConfigureWithDebuggerNotification": false,
     "makefile.configureOnOpen": true,
@@ -79,6 +82,11 @@
     "window.commandCenter": false,
     "workbench.activityBar.location": "bottom",
     "workbench.editor.editorActionsLocation": "titleBar",
-    "window.customTitleBarVisibility": "auto",
-    "editor.defaultColorDecorators": "never"
+    "window.customTitleBarVisibility": "never",
+    "editor.defaultColorDecorators": "never",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.nativeTabs": true
 }
